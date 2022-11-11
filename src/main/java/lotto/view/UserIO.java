@@ -21,6 +21,7 @@ public class UserIO {
     public int moneySpent() {
         System.out.println("구입금액을 입력해 주세요.");
         String input = Console.readLine();
+        System.out.println();
         int money = Integer.valueOf(input);
 
         if (money % 1000 != 0) {
@@ -31,14 +32,14 @@ public class UserIO {
     }
 
     // 로또 구입내역
-    public List<Lotto> purchaseLotto(int amount) {
+    public void purchaseLotto(int amount) {
         for (int i = 0; i < amount; i++) {
             List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
             Collections.sort(numbers);
             Lotto lotto = new Lotto(numbers);
             this.userLottoList.add(lotto);
         }
-        return this.userLottoList;
+        return;
     }
 
     // 구입한 로또의 수량
@@ -53,6 +54,7 @@ public class UserIO {
         for (Lotto lotto : userLottoList) {
             lotto.printNumbers();
         }
+        System.out.println();
     }
 
     public List<Lotto> getUserLottoList() {

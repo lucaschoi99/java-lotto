@@ -18,9 +18,10 @@ public class LottoIO {
     }
 
     // 당첨 번호 입력
-    public List<Integer> inputLottoAnswer() {
+    public void inputLottoAnswer() {
         System.out.println("당첨 번호를 입력 주세요.");
         String input = Console.readLine();
+        System.out.println();
         if (checkInvalidNumbers(input)) {
             System.out.println("[ERROR] 당첨번호는 쉼표(,)를 기준으로 6개의 숫자를 입력해 주세요.");
             throw new IllegalArgumentException();
@@ -30,13 +31,14 @@ public class LottoIO {
         for (String num : nums) {
             this.lottoAnswer.add(Integer.valueOf(num));
         }
-        return this.lottoAnswer;
+        return;
     }
 
     // 보너스 번호 입력
-    public int inputBonusAnswer() {
+    public void inputBonusAnswer() {
         System.out.println("보너스 번호를 입력 주세요.");
         String input = Console.readLine();
+        System.out.println();
         if (checkInvalidBonus(input)) {
             System.out.println("[ERROR] 보너스 번호는 1부터 45 사이의 숫자를 한 개만 입력해 주세요.");
             throw new IllegalArgumentException();
@@ -44,7 +46,7 @@ public class LottoIO {
         Integer result = Integer.valueOf(input);
 
         this.bonus = result;
-        return bonus;
+        return;
     }
 
     // 올바르지 않은 당첨 번호 확인
@@ -78,7 +80,7 @@ public class LottoIO {
 
     // 1~45 사이의 숫자 값인지 확인
     public boolean isNotNumericRange(String num) {
-        if (!num.matches("[1-45]")) {
+        if (!num.matches("[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-5]")) {
             return true;
         }
         return false;
@@ -102,7 +104,7 @@ public class LottoIO {
 
     // 총 수익률 결과 출력
     public void printYieldsFormat(double yields) {
-        System.out.println("총 수익률은 " + yields + "%입니다.");
+        System.out.print("총 수익률은 " + yields + "%입니다.");
     }
 
     public List<Integer> getLottoAnswer() {
