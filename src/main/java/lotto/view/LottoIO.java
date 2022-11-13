@@ -1,11 +1,8 @@
 package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
-import lotto.Lotto;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class LottoIO {
@@ -19,7 +16,7 @@ public class LottoIO {
 
     // 당첨 번호 입력
     public void inputLottoAnswer() {
-        System.out.println("당첨 번호를 입력 주세요.");
+        System.out.println("당첨 번호를 입력해 주세요.");
         String input = Console.readLine();
         System.out.println();
         if (checkInvalidNumbers(input)) {
@@ -36,7 +33,7 @@ public class LottoIO {
 
     // 보너스 번호 입력
     public void inputBonusAnswer() {
-        System.out.println("보너스 번호를 입력 주세요.");
+        System.out.println("보너스 번호를 입력해 주세요.");
         String input = Console.readLine();
         System.out.println();
         if (checkInvalidBonus(input)) {
@@ -54,7 +51,6 @@ public class LottoIO {
         if (input == null) {
             return true;
         }
-
         String[] nums = input.split(",");
         if (nums.length != 6) {
             return true;
